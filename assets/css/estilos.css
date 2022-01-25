@@ -190,10 +190,23 @@ body{
 @media screen and (min-width: 1440px) {
     .principal {
         display: grid;
+        display: grid;
+        grid-template-columns: auto 1fr auto;
+        grid-template-areas: 
+            "titulo-pagina titulo-pagina titulo-pagina"
+            "destaque-video destaque-video videos-rescentes"
+            "secao-videos secao-videos secao-videos"
+            "produtos-rescentes destaque-produtos destaque-produtos"
+            "secao-produtos secao-produtos secao-produtos"
+        ;
         grid-template-columns: auto 1fr auto;
         column-gap: 32px;
         padding: 16px 60px;
         grid-column: 2;
+    }
+
+    .titulo-secao {
+        grid-column: span 4;
     }
 }
 
@@ -202,6 +215,10 @@ body{
     border-radius: 15px;
     overflow: hidden;
     background-color: #2C343A;
+}
+
+.cartao__imagem--mobile {
+    display: none;
 }
 
 .cartao--destaque {
@@ -288,6 +305,23 @@ body{
 }
 
 @media screen and (min-width: 1440px) {
+    .cartao--destaque {
+        margin-bottom: 0;
+    }
+
+    .cartao__imagem--mobile {
+        display: none;
+    }
+
+    .cartao__imagem--destop {
+        display: block;
+    }
+
+    .cartao__botao--destaque {
+        grid-column: auto;
+        padding: 1px 8px;
+    }
+
     .cartao--rescentes {
         display: grid;
         grid-template-columns: auto auto;
@@ -296,6 +330,7 @@ body{
         width: 256px;
         padding: 16px;
         box-sizing: border-box;
+        align-self: flex-start;
     }
 
     .cartao--rescentes .cartao__titulo {
@@ -342,3 +377,34 @@ body{
     display: grid;
     gap: 30px;
 }
+
+@media screen and (min-width: 1440px) {
+    .secao {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    .destaque-video {
+        grid-area: destaque-video;
+    }
+    
+    .videos-rescentes {
+        grid-area: videos-rescentes;
+    }
+    
+    .secao-videos {
+        grid-area: secao-videos;
+    }
+    
+    .destaque-produtos {
+        grid-area: destaque-produtos;
+    }
+    
+    .produtos-rescentes {
+        grid-area: produtos-rescentes;
+    }
+    
+    .secao-produtos {
+        grid-area: secao-produtos;
+    }
+}
+
